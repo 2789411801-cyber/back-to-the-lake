@@ -1,4 +1,4 @@
-/* Social Icons */
+/* Social Icons — minimal */
 .social-icons {
   display: flex;
   align-items: center;
@@ -9,28 +9,14 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  color: var(--color-text-secondary);
+  width: 28px;
+  height: 28px;
+  color: var(--color-text-tertiary);
   border-radius: 50%;
-  transition: all var(--transition);
+  transition: color var(--transition);
+  text-decoration: none;
 
   &:hover {
-    color: var(--color-white);
-    background: var(--color-primary);
-  }
-}
-
-/* Footer social icons slight adjustment */
-.footer-widget .social-icons {
-  flex-wrap: wrap;
-  margin-top: var(--spacing-sm);
-
-  .social-icon {
-    color: var(--color-text-light);
-    &:hover {
-      color: var(--color-white);
-      background: var(--color-primary);
-    }
+    color: var(--color-text);
   }
 }

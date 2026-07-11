@@ -3,58 +3,21 @@
   <section class="widget widget_search">
     <h2 class="widget-title">Search</h2>
     <form role="search" method="get" class="search-form" action="{{ '/search/' | relative_url }}">
-      <label style="display:none;" for="sidebar-search">Search</label>
-      <input type="search" id="sidebar-search" class="search-field" placeholder="Search..." value="" name="q">
+      <input type="search" class="search-field" placeholder="Search..." value="" name="q">
       <button type="submit" class="search-submit">Go</button>
     </form>
   </section>
 
-  <!-- Categories Widget -->
-  {% if site.categories.size > 0 %}
-  <section class="widget widget_categories">
-    <h2 class="widget-title">Categories</h2>
-    <ul>
-      {% for category in site.categories %}
-      <li class="cat-item">
-        <a href="/categories/#{{ category[0] | slugify }}">{{ category[0] }}</a>
-        <span class="count">({{ category[1].size }})</span>
-      </li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endif %}
-
   <!-- Recent Posts Widget -->
   <section class="widget widget_recent_posts">
-    <h2 class="widget-title">Recent Posts</h2>
+    <h2 class="widget-title">Recent</h2>
     <ul>
       {% for post in site.posts limit:5 %}
       <li>
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+        <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
       </li>
       {% endfor %}
     </ul>
   </section>
-
-  <!-- Tags Widget -->
-  {% if site.tags.size > 0 %}
-  <section class="widget widget_tag_cloud">
-    <h2 class="widget-title">Tags</h2>
-    <div class="tagcloud">
-      {% assign max_count = 0 %}
-      {% for tag in site.tags %}
-        {% if tag[1].size > max_count %}
-          {% assign max_count = tag[1].size %}
-        {% endif %}
-      {% endfor %}
-      {% for tag in site.tags %}
-      {% assign ratio = tag[1].size | times: 100 | divided_by: max_count %}
-      <a href="/tags/#{{ tag[0] | slugify }}" class="tag-cloud-link">
-        {{ tag[0] }}
-      </a>
-      {% endfor %}
-    </div>
-  </section>
-  {% endif %}
 </aside>

@@ -5,41 +5,29 @@ layout: default
 <div class="post-list">
   {% for post in paginator.posts %}
   <article class="post-card">
-    {% if post.thumbnail %}
-    <div class="post-card__thumbnail">
-      <a href="{{ post.url | relative_url }}">
-        <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }}" loading="lazy">
-      </a>
-    </div>
-    {% endif %}
-    <div class="post-card__body">
-      <header class="post-card__header">
-        <h2 class="post-card__title">
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </h2>
-        <div class="post-card__meta">
-          <span class="posted-date">
-            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
-          </span>
-          {% if post.author or site.author %}
-          <span class="posted-author">by {{ post.author | default: site.author }}</span>
-          {% endif %}
-          {% if post.categories.size > 0 %}
-          <span class="posted-categories">
-            {% for category in post.categories %}
-            <a href="/categories/#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
-            {% endfor %}
-          </span>
-          {% endif %}
-        </div>
-      </header>
-      <div class="post-card__excerpt">
-        {{ post.excerpt | strip_html | truncatewords: 60 }}
+    <header class="post-card__header">
+      <h2 class="post-card__title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+      <div class="post-card__meta">
+        <span class="posted-date">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+        </span>
+        {% if post.categories.size > 0 %}
+        <span class="posted-categories">
+          {% for category in post.categories %}
+          <a href="/categories/#{{ category | slugify }}">{{ category }}</a>{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </span>
+        {% endif %}
       </div>
-      <footer class="post-card__footer">
-        <a href="{{ post.url | relative_url }}" class="read-more">Continue Reading &rarr;</a>
-      </footer>
+    </header>
+    <div class="post-card__excerpt">
+      {{ post.excerpt | strip_html | truncatewords: 60 }}
     </div>
+    <footer class="post-card__footer">
+      <a href="{{ post.url | relative_url }}" class="read-more">Continue &rarr;</a>
+    </footer>
   </article>
   {% endfor %}
 </div>

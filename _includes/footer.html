@@ -1,57 +1,7 @@
 <footer id="colophon" class="site-footer">
-  <div class="footer-widgets">
-    <div class="container">
-      <div class="footer-widgets__row">
-        <!-- Widget 1: About -->
-        <div class="footer-widget footer-widget--1">
-          <section class="widget">
-            <h3 class="widget-title">About</h3>
-            <p>{{ site.footer_about | default: site.description }}</p>
-          </section>
-        </div>
-        <!-- Widget 2: Recent Posts -->
-        <div class="footer-widget footer-widget--2">
-          <section class="widget">
-            <h3 class="widget-title">Recent Posts</h3>
-            <ul>
-              {% for post in site.posts limit:3 %}
-              <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-              {% endfor %}
-            </ul>
-          </section>
-        </div>
-        <!-- Widget 3: Categories -->
-        <div class="footer-widget footer-widget--3">
-          <section class="widget">
-            <h3 class="widget-title">Categories</h3>
-            <ul>
-              {% for category in site.categories limit:5 %}
-              <li><a href="/categories/#{{ category[0] | slugify }}">{{ category[0] }}</a></li>
-              {% endfor %}
-            </ul>
-          </section>
-        </div>
-        <!-- Widget 4: Follow -->
-        <div class="footer-widget footer-widget--4">
-          <section class="widget">
-            <h3 class="widget-title">Follow</h3>
-            {% include social-icons.html %}
-          </section>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="site-info">
     <div class="container">
-      <div class="site-info__inner">
-        <span class="copyright">
-          &copy; {{ site.time | date: '%Y' }} {{ site.title }}
-        </span>
-        <span class="theme-info">
-          Powered by <a href="https://jekyllrb.com/">Jekyll</a>
-        </span>
-      </div>
+      &copy; {{ site.time | date: '%Y' }} {{ site.title }}
     </div>
   </div>
 </footer>

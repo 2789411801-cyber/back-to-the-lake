@@ -1,20 +1,20 @@
-/* Container and content layout */
+/* Container — centered single column */
 
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 var(--spacing-lg);
+  padding: 0 var(--space-lg);
 }
 
 .site-content {
-  padding: var(--spacing-2xl) 0;
+  padding: var(--space-3xl) 0;
 }
 
 .content-row {
   display: flex;
-  gap: var(--gap-sidebar);
+  gap: var(--space-2xl);
 
-  @include breakpoint-down(lg) {
+  @include breakpoint-down(md) {
     flex-direction: column;
   }
 }
@@ -25,6 +25,6 @@
 }
 
 .no-sidebar .content-area {
-  max-width: var(--content-full);
+  max-width: var(--container-width);
   margin: 0 auto;
 }
