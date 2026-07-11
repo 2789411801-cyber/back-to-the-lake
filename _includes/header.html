@@ -1,0 +1,27 @@
+{% include header-top-bar.html %}
+
+<header id="masthead" class="site-header">
+  <div class="container">
+    <div class="site-branding">
+      {% if site.logo and site.logo != "" %}
+      <a href="{{ '/' | relative_url }}" class="custom-logo-link">
+        <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}">
+      </a>
+      {% else %}
+      <h1 class="site-title">
+        <a href="{{ '/' | relative_url }}" rel="home">{{ site.title }}</a>
+      </h1>
+      <p class="site-description">{{ site.description | truncate: 80 }}</p>
+      {% endif %}
+    </div>
+    {% include header-primary-nav.html %}
+  </div>
+</header>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="search-overlay">
+  <button class="search-overlay__close" id="search-close">&times;</button>
+  <div class="search-overlay__inner">
+    <input type="text" class="search-overlay__input" id="search-overlay-input" placeholder="Type and press enter to search...">
+  </div>
+</div>

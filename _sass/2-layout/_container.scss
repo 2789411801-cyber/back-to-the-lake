@@ -1,0 +1,30 @@
+/* Container and content layout */
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.site-content {
+  padding: var(--spacing-2xl) 0;
+}
+
+.content-row {
+  display: flex;
+  gap: var(--gap-sidebar);
+
+  @include breakpoint-down(lg) {
+    flex-direction: column;
+  }
+}
+
+.content-area {
+  flex: 1;
+  min-width: 0;
+}
+
+.no-sidebar .content-area {
+  max-width: var(--content-full);
+  margin: 0 auto;
+}

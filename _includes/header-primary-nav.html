@@ -1,0 +1,13 @@
+<nav id="site-navigation" class="primary-navigation">
+  <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+    <span class="menu-toggle__icon">&#9776;</span>
+  </button>
+  <ul id="primary-menu" class="menu">
+    {% for item in site.data.navigation %}
+    <li class="menu-item {% if page.url == item.url %}current-menu-item{% endif %}">
+      <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  <button class="search-toggle" aria-label="Toggle search">&#128269;</button>
+</nav>

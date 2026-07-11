@@ -1,0 +1,204 @@
+/* Header Styles */
+
+/* Top Bar */
+.top-header-bar {
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: var(--top-bar-height);
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.top-bar-tagline {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Site Header & Branding */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+  z-index: 100;
+
+  &.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: var(--shadow-md);
+    animation: slideDown 0.3s ease;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: var(--nav-height);
+  }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+.site-branding {
+  flex-shrink: 0;
+}
+
+.site-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--weight-bold);
+  margin: 0;
+  line-height: 1;
+
+  a {
+    color: var(--color-heading);
+    text-decoration: none;
+
+    &:hover { color: var(--color-primary); }
+  }
+}
+
+.site-description {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin: 4px 0 0;
+}
+
+.custom-logo-link img {
+  max-height: 40px;
+  width: auto;
+}
+
+/* Primary Navigation */
+.primary-navigation {
+  display: flex;
+  align-items: center;
+
+  .menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      position: relative;
+
+      a {
+        display: block;
+        padding: var(--spacing-md) var(--spacing-lg);
+        color: var(--color-heading);
+        text-decoration: none;
+        font-family: var(--font-heading);
+        font-weight: var(--weight-semibold);
+        font-size: var(--font-size-sm);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: color var(--transition);
+
+        &:hover { color: var(--color-primary); }
+      }
+
+      &.current-menu-item a {
+        color: var(--color-primary);
+      }
+    }
+  }
+}
+
+/* Menu Toggle (mobile) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  color: var(--color-heading);
+
+  &:hover { color: var(--color-primary); }
+}
+
+/* Search Toggle */
+.search-toggle {
+  background: none;
+  border: none;
+  font-size: 1.125rem;
+  cursor: pointer;
+  color: var(--color-heading);
+  padding: var(--spacing-sm);
+  margin-left: var(--spacing-sm);
+  transition: color var(--transition);
+
+  &:hover { color: var(--color-primary); }
+}
+
+/* Search Overlay */
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.97);
+  z-index: 999;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 150px;
+
+  &.active { display: flex; }
+
+  .search-overlay__inner {
+    width: 100%;
+    max-width: 600px;
+    padding: 0 var(--spacing-lg);
+  }
+
+  .search-overlay__input {
+    width: 100%;
+    font-size: var(--font-size-xl);
+    padding: var(--spacing-md) 0;
+    border: none;
+    border-bottom: 2px solid var(--color-border);
+    background: transparent;
+    outline: none;
+    color: var(--color-heading);
+
+    &:focus { border-color: var(--color-primary); }
+  }
+
+  .search-overlay__close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    transition: color var(--transition);
+
+    &:hover { color: var(--color-heading); }
+  }
+}

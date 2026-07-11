@@ -1,0 +1,39 @@
+/* Breakpoint Mixins */
+
+@mixin breakpoint-up($name) {
+  $breakpoints: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+  );
+  @media (min-width: map-get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($name) {
+  $breakpoints: (
+    sm: 575.98px,
+    md: 767.98px,
+    lg: 991.98px,
+    xl: 1199.98px
+  );
+  @media (max-width: map-get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+@mixin container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

@@ -1,0 +1,69 @@
+# Site settings
+title: My Blog
+tagline: "Thoughts & Stories"
+description: >-
+  A clean personal blog — thoughts on technology, life, and everything in between.
+author: Your Name
+email: your.email@example.com
+
+# URLs
+url: "https://yourusername.github.io"
+baseurl: ""
+permalink: /:year/:month/:day/:title/
+
+# Logo (optional — set to a path like /assets/images/logo.svg)
+logo: ""
+
+# Social links
+social:
+  github: ""
+  twitter: ""
+  linkedin: ""
+
+# Pagination
+paginate: 5
+paginate_path: "/page:num/"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .gitignore
+  - vendor/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      sidebar: true
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+      sidebar: true
+  - scope:
+      path: "pages/about.md"
+    values:
+      sidebar: false
+
+# Kramdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Footer about text
+footer_about: "A personal blog about technology, life, and ideas. Built with Jekyll and deployed on GitHub Pages."

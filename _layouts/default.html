@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+{% include head.html %}
+<body class="{% if page.layout %}{{ page.layout }}{% endif %} {% if page.sidebar == false %}no-sidebar{% endif %}">
+  <div id="page" class="site">
+    {% include header.html %}
+
+    <div id="content" class="site-content">
+      <div class="container">
+        <div class="content-row">
+          <main id="primary" class="content-area">
+            {{ content }}
+          </main>
+          {% unless page.sidebar == false %}
+            {% include sidebar.html %}
+          {% endunless %}
+        </div>
+      </div>
+    </div>
+
+    {% include footer.html %}
+  </div>
+
+  <a href="#" id="scroll-up" class="scroll-up" title="Back to top">&#8593;</a>
+
+  <script src="{{ '/assets/js/navigation.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
+</body>
+</html>
