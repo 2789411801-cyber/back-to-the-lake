@@ -1,4 +1,4 @@
-# 小猪爱洗澡 — Cyber's Blog
+# 小猪爱洗澡 — 迷途小猪的博客
 
 A clean, minimal personal blog built with Jekyll, inspired by the Cenote WordPress theme. Deployed on GitHub Pages.
 
