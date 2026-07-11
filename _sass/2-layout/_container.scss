@@ -1,30 +1,42 @@
-/* Container — centered single column */
+/* Container & Layout */
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 var(--space-lg);
+  padding: 0 2rem;
+
+  @include breakpoint-down(sm) {
+    padding: 0 1.25rem;
+  }
 }
 
 .site-content {
-  padding: var(--space-3xl) 0;
+  flex: 1;
 }
 
-.content-row {
-  display: flex;
-  gap: var(--space-2xl);
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 3rem;
+  padding: 2rem 0 4rem;
 
   @include breakpoint-down(md) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
 
 .content-area {
-  flex: 1;
   min-width: 0;
 }
 
 .no-sidebar .content-area {
-  max-width: var(--container-width);
+  max-width: 800px;
   margin: 0 auto;
 }

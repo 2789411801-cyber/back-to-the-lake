@@ -1,25 +1,47 @@
-<header id="masthead" class="site-header">
-  <div class="container">
-    <div class="site-branding">
-      {% if site.logo and site.logo != "" %}
-      <a href="{{ '/' | relative_url }}" class="custom-logo-link">
-        <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}">
-      </a>
-      {% else %}
-      <div class="site-title">
-        <a href="{{ '/' | relative_url }}" rel="home">{{ site.title }}</a>
-      </div>
-      <p class="site-description">{{ site.tagline }}</p>
-      {% endif %}
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="{{ '/' | relative_url }}" class="nav-brand">
+      <span class="brand-dot"></span> {{ site.title }}
+    </a>
+    <ul class="nav-links" id="navLinks">
+      {% for item in site.data.navigation %}
+      <li><a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active"{% endif %}>{{ item.title }}</a></li>
+      {% endfor %}
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-btn" id="searchBtn" aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+      <button class="nav-btn theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2m-10-10h2m16 0h2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h0"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <button class="nav-btn menu-toggle" id="menuToggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
     </div>
-    {% include header-primary-nav.html %}
   </div>
-</header>
+</nav>
 
 <!-- Search Overlay -->
-<div class="search-overlay" id="search-overlay">
-  <button class="search-overlay__close" id="search-close">&times;</button>
-  <div class="search-overlay__inner">
-    <input type="text" class="search-overlay__input" id="search-overlay-input" placeholder="Search..." autocomplete="off">
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="text" id="searchOverlayInput" placeholder="Search articles..." autocomplete="off">
+    </div>
+    <div class="search-hint">
+      Press <kbd>Esc</kbd> to close
+    </div>
   </div>
 </div>

@@ -1,25 +1,19 @@
 <nav class="pagination">
   {% if paginator.previous_page %}
-  <a href="{{ paginator.previous_page_path | relative_url }}" class="page-nav page-nav--prev">&larr; Previous</a>
-  {% else %}
-  <span class="page-nav page-nav--prev disabled">&larr; Previous</span>
+  <a href="{{ paginator.previous_page_path | relative_url }}" class="page-btn">&larr;</a>
   {% endif %}
 
-  <div class="page-numbers">
-    {% for page in (1..paginator.total_pages) %}
-      {% if page == paginator.page %}
-      <span class="page-number current">{{ page }}</span>
-      {% elsif page == 1 %}
-      <a href="{{ '/' | relative_url }}" class="page-number">{{ page }}</a>
-      {% else %}
-      <a href="/page{{ page }}/" class="page-number">{{ page }}</a>
-      {% endif %}
-    {% endfor %}
-  </div>
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+    <span class="page-btn active">{{ page }}</span>
+    {% elsif page == 1 %}
+    <a href="{{ '/' | relative_url }}" class="page-btn">{{ page }}</a>
+    {% else %}
+    <a href="/page{{ page }}/" class="page-btn">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
 
   {% if paginator.next_page %}
-  <a href="{{ paginator.next_page_path | relative_url }}" class="page-nav page-nav--next">Next &rarr;</a>
-  {% else %}
-  <span class="page-nav page-nav--next disabled">Next &rarr;</span>
+  <a href="{{ paginator.next_page_path | relative_url }}" class="page-btn">&rarr;</a>
   {% endif %}
 </nav>

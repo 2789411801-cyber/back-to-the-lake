@@ -1,93 +1,116 @@
-/* Sidebar — lightweight, minimal */
+/* Sidebar */
 
-.widget-area {
-  width: 260px;
-  flex-shrink: 0;
-  font-size: var(--text-sm);
-
-  @include breakpoint-down(md) {
-    width: 100%;
-    margin-top: var(--space-2xl);
-    padding-top: var(--space-xl);
-    border-top: 1px solid var(--color-border);
-  }
-}
-
-.widget {
-  margin-bottom: var(--space-xl);
-
-  &:last-child { margin-bottom: 0; }
-}
-
-.widget-title {
-  font-family: var(--font-body);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-medium);
-  color: var(--color-text-tertiary);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: var(--space-md);
-}
-
-.widget ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  li {
-    padding: var(--space-xs) 0;
-    border-bottom: 1px solid var(--color-border);
-    font-size: var(--text-sm);
-
-    &:last-child { border-bottom: none; }
-
-    a {
-      color: var(--color-text-secondary);
-      text-decoration: none;
-
-      &:hover { color: var(--color-text); }
-    }
-  }
-}
-
-.post-date {
-  display: block;
-  font-size: var(--text-xs);
-  color: var(--color-text-tertiary);
-  margin-top: 1px;
-}
-
-.cat-item .count {
-  color: var(--color-text-tertiary);
-  font-size: var(--text-xs);
-}
-
-/* Search form in sidebar */
-.widget_search .search-form {
+.sidebar {
   display: flex;
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius);
-  overflow: hidden;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.widget_search .search-field {
-  flex: 1;
-  border: none;
-  padding: 6px 10px;
-  font-size: var(--text-sm);
-  outline: none;
-  background: var(--color-bg-card);
+.sidebar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
 }
 
-.widget_search .search-submit {
-  background: var(--color-bg);
-  color: var(--color-text-secondary);
-  border: none;
-  border-left: 1px solid var(--color-border);
-  padding: 6px 12px;
-  font-size: var(--text-xs);
-  cursor: pointer;
-  transition: color var(--transition);
+.sidebar-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+  position: relative;
+  padding-bottom: 0.6rem;
 
-  &:hover { color: var(--color-text); }
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0.5;
+  }
+}
+
+/* Author card */
+.author-card {
+  text-align: center;
+}
+
+.author-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  margin: 0 auto 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+
+.author-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+}
+
+.author-bio {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.85rem;
+}
+
+.author-socials {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+
+  a {
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all var(--transition);
+    background: var(--bg-secondary);
+
+    &:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    svg { width: 16px; height: 16px; }
+  }
+}
+
+/* Tag cloud */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.3rem 0.75rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  border-radius: 100px;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: all var(--transition);
+
+  &:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
 }

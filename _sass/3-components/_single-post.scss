@@ -2,131 +2,130 @@
 
 .single-post {
   .entry-header {
-    margin-bottom: var(--space-xl);
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-subtle);
   }
 
   .entry-title {
-    font-family: var(--font-body);
-    font-size: var(--text-2xl);
-    font-weight: var(--weight-bold);
-    line-height: var(--leading-tight);
-    margin-bottom: var(--space-sm);
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.75rem;
   }
 
   .entry-meta {
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
 
-    span {
-      display: inline-block;
-
-      &:not(:last-child)::after {
-        content: '\00B7';
-        margin: 0 var(--space-xs);
-        color: var(--color-text-tertiary);
-      }
+    .posted-date {
+      color: var(--accent);
+      font-weight: 500;
     }
 
     a {
-      color: var(--color-text-secondary);
+      color: var(--text-secondary);
       text-decoration: none;
+      &:hover { color: var(--accent); }
+    }
 
-      &:hover { color: var(--color-text); }
+    span:not(:last-child)::after {
+      content: '\00B7';
+      margin-left: 0.5rem;
+      opacity: 0.4;
     }
   }
 
   .post-thumbnail {
-    margin-bottom: var(--space-xl);
-
-    img {
-      width: 100%;
-      height: auto;
-    }
+    margin-bottom: 2rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    img { width: 100%; }
   }
 
   .entry-content {
-    font-size: var(--text-base);
-    line-height: var(--leading-relaxed);
+    font-family: var(--font-reading);
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-primary);
 
     h2 {
-      font-size: var(--text-xl);
-      font-weight: var(--weight-semibold);
-      margin-top: var(--space-2xl);
-      margin-bottom: var(--space-md);
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
     }
 
     h3 {
-      font-size: var(--text-lg);
-      font-weight: var(--weight-semibold);
-      margin-top: var(--space-xl);
-      margin-bottom: var(--space-sm);
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
     }
 
-    p {
-      margin-bottom: var(--space-lg);
-    }
+    p { margin-bottom: 1.25rem; }
 
     img {
-      margin: var(--space-xl) auto;
+      border-radius: var(--radius-md);
+      margin: 2rem auto;
     }
 
     ul, ol {
-      margin-bottom: var(--space-lg);
-
-      li { margin-bottom: var(--space-xs); }
-    }
-
-    blockquote {
-      margin: var(--space-xl) 0;
-      padding: var(--space-md) var(--space-lg);
-      border-left: 2px solid var(--color-text);
-      color: var(--color-text-secondary);
-      font-style: italic;
-
-      p:last-child { margin-bottom: 0; }
+      margin-bottom: 1.25rem;
+      li { margin-bottom: 0.5rem; }
     }
 
     a {
-      color: var(--color-text);
+      color: var(--accent);
       text-decoration: underline;
-      text-decoration-color: var(--color-border);
       text-underline-offset: 3px;
-
-      &:hover { text-decoration-color: var(--color-text); }
+      &:hover { color: var(--text-primary); }
     }
   }
 
   .entry-footer {
-    margin-top: var(--space-2xl);
-    padding-top: var(--space-lg);
-    border-top: 1px solid var(--color-border);
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
   }
 
   .tag-links {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: var(--space-xs);
+    gap: 0.4rem;
   }
 
   .tag-label {
-    font-size: var(--text-sm);
-    color: var(--color-text-tertiary);
-    margin-right: 2px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-right: 0.25rem;
   }
 
   .tag-link {
-    font-size: var(--text-xs);
-    color: var(--color-text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 0.3rem 0.75rem;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    border-radius: 100px;
+    letter-spacing: 0.03em;
     text-decoration: none;
-    padding: 2px 8px;
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
     transition: all var(--transition);
 
     &:hover {
-      color: var(--color-text);
-      border-color: var(--color-text-secondary);
+      background: var(--accent-soft);
+      color: var(--accent);
     }
   }
 }
@@ -135,46 +134,46 @@
 .post-navigation {
   display: flex;
   justify-content: space-between;
-  margin-top: var(--space-2xl);
-  padding-top: var(--space-xl);
-  border-top: 1px solid var(--color-border);
-  gap: var(--space-lg);
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+  gap: 1rem;
 
   @include breakpoint-down(sm) {
     flex-direction: column;
-    gap: var(--space-md);
   }
 
-  .nav-previous,
-  .nav-next {
+  .nav-previous, .nav-next {
     flex: 1;
     min-width: 0;
   }
 
-  .nav-next { text-align: right; }
+  .nav-next { text-align: right;
+    @include breakpoint-down(sm) { text-align: left; }
+  }
 
   a {
     display: block;
     text-decoration: none;
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
     transition: color var(--transition);
-
-    &:hover { color: var(--color-text); }
+    &:hover { color: var(--accent); }
   }
 
   .nav-label {
     display: block;
-    font-size: var(--text-xs);
-    color: var(--color-text-tertiary);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 2px;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.25rem;
   }
 
   .nav-title {
     display: block;
-    font-size: var(--text-sm);
-    font-weight: var(--weight-medium);
+    font-size: 0.9rem;
+    font-weight: 500;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

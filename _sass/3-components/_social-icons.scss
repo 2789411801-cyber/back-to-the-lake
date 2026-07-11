@@ -1,22 +1,2 @@
-/* Social Icons — minimal */
-.social-icons {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.social-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  color: var(--color-text-tertiary);
-  border-radius: 50%;
-  transition: color var(--transition);
-  text-decoration: none;
-
-  &:hover {
-    color: var(--color-text);
-  }
-}
+/* Social icons used in nav top bar (kept minimal) */
+// Social styles are now in _sidebar.scss (author-socials) and _footer.scss (footer-social)

@@ -1,4 +1,4 @@
-/* Client-side search */
+/* Client-side search page */
 (function () {
   var searchInput = document.getElementById('search-input');
   var resultsContainer = document.getElementById('results-container');
@@ -7,12 +7,10 @@
   var posts = [];
   var indexUrl = '/assets/js/search_index.json';
 
-  // Load search index
   fetch(indexUrl)
-    .then(function (response) { return response.json(); })
+    .then(function (r) { return r.json(); })
     .then(function (data) {
       posts = data;
-      // Check for URL query param
       var params = new URLSearchParams(window.location.search);
       var query = params.get('q');
       if (query) {
@@ -26,10 +24,7 @@
 
   function performSearch(query) {
     var q = query.toLowerCase().trim();
-    if (!q) {
-      resultsContainer.innerHTML = '';
-      return;
-    }
+    if (!q) { resultsContainer.innerHTML = ''; return; }
     var results = posts.filter(function (p) {
       return p.title.toLowerCase().indexOf(q) !== -1 ||
              p.content.toLowerCase().indexOf(q) !== -1 ||
@@ -70,12 +65,9 @@
     return text.replace(/[&<>"']/g, function (m) { return map[m]; });
   }
 
-  // Debounced search on input
   var debounceTimer;
   searchInput.addEventListener('input', function () {
     clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(function () {
-      performSearch(searchInput.value);
-    }, 200);
+    debounceTimer = setTimeout(function () { performSearch(searchInput.value); }, 200);
   });
 })();
