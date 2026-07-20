@@ -6,7 +6,7 @@
 # 4. Replace the placeholder values below
 
 giscus:
-  repo: "Riverran/back-to-the-lake"
+  repo: "theRiverran/back-to-the-lake"
   repo_id: "R_kgDOTVLvzA"        # ← 从 giscus.app 获取后替换
   category: "Announcements"
   category_id: "DIC_kwDOTVLvzM4DA-mv" # ← 从 giscus.app 获取后替换
